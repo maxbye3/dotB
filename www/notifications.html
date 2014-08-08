@@ -1,0 +1,332 @@
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        
+        
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+      
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/dotStyle.css" />
+
+		
+        <title>Notifications</title>
+    </head>
+    <body>
+		
+
+
+
+     <style type="text/css" media="screen">
+         h1{
+             margin-left: 15px;
+             padding-top: 20px;
+             padding-bottom: 20px;
+             font-size: 5em;
+             color: white;
+             z-index: -10;
+             
+         }
+     
+     .countdownContainer{
+         background-color:#17365d;
+         z-index: -12;
+         position: absolute;
+         width: 100%;
+     }
+	 
+	 body{
+         background-color:#17365d;
+	 }
+	 
+     .timePicker{
+         margin-left: 25px;
+         padding-top: 30px;
+         padding-bottom: 40px;
+         font-size: 2em;
+         color: white;
+		 z-index: 10;
+		 position: absolute;
+		 
+         
+     }
+     
+     .interbalPicker{
+         margin-left: 0px;
+         padding-top: 0px;
+         padding-bottom: 0px;
+         font-size: 1.35em;
+         color: white;
+         width: 200px;
+     }
+     
+     .countdownContainer{
+         background-color:#17365d;
+         z-index: -12;
+         position: absolute;
+         width: 100%;
+     }
+     
+     .bellContainer{
+         margin-top: 120px;
+		 height: 200px;
+         width: 100%;
+         color: #b9d1f2;
+         padding: 35px;
+		 padding-top: 0px;
+         background-color:#558dd5;
+     }
+     
+     h5{
+         font-size: 20px;
+         text-align: center;
+     }
+     
+     .homeLink {
+         width: 60px;
+         height: 50px;
+         position: absolute;
+         right: 0;
+     }
+     
+     .blueSquare{
+         width: 90px;
+         height: 90px;
+         background: #64a2f2;
+         margin-top: 5px;
+         margin-bottom: 5px;
+         
+     }
+     
+     .bellDescript{
+         font-size: 20px;
+         text-align: center;
+         color: white;
+     }
+
+
+        </style>
+		
+        <link rel="stylesheet" href="css/iphone_4_inch.css">
+
+    <div style='background-color:#ccc; width: 100%; height: 20px;'></div>
+
+    <!-- Top Banner -->
+    <div class="centered ">
+        <a href='index.html' class='homeLink'></a>
+        
+      
+      
+        <img src='img/banner.png' style='width: 100%; position: absolute; z-index: -1;'>
+            
+             <img src='dot_b.png' width='40px' style='float: left; margin: 5px; z-index:10; positon: absolute;'>
+           
+          <h3 style='margin-left: 50px; padding-top: 7px;'>Notifications</h3>
+       </div>    
+          <!-- Count Down -->
+       
+          <div class='bellContainer'>
+          <h4 style='float: right;'>
+			  <span style='color: white;'>Mins</span> <br><br>
+              <select class="input" id="myselect" style='color: black;'>
+				  <option>00</option>
+				  <option>10</option>
+				  <option>15</option>
+				  <option>20</option>
+				  <option>30</option>
+				  <option>40</option>
+				  <option>45</option>
+				  <option>50</option>
+              </select>
+          </h4>
+		  
+          <h4 style='float: left;'>
+			   <span style='color: white;'>Hours</span> <br><br>
+              <select class="input" id="myselect" style='color: black;'>
+                  <option>00</option>
+				  <option>01</option>
+				  <option>02</option>
+				  <option>03</option>
+				  <option>04</option>
+				  <option>05</option>
+				  <option>06</option>
+				  <option>07</option>
+				  <option>08</option>
+				  <option>09</option>
+				  <option>10</option>
+				  <option>11</option>
+				    <option>12</option>
+				  <option>13</option>
+				  <option>14</option>
+				  <option>15</option>
+				    <option>16</option>
+				  <option>17</option>
+				  <option>18</option>
+				    <option>19</option>
+				  <option>20</option>
+				  <option>21</option>
+				  <option>22</option>
+				  <option>23</option>
+              </select>
+          </h4>
+	  </div>
+        
+		  
+          
+         
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.timer.js"></script>
+	
+
+    
+	<script type="text/javascript">
+		
+
+
+
+    
+
+	/**
+	 * Two things that are
+	 * different are counting down instead of up and allowing
+	 * user input for start time. Also, when the timer counts
+	 * down to zero, an alert is triggered.
+	 */
+	var Example2 = new (function() {
+
+	    var $countdown;
+	    var $form;
+	    var incrementTime = 70;
+	    var currentTime = 600000; // 5 minutes (in milliseconds)
+	    var newTime = currentTime;
+        var interval = [];
+                //        newTime = parseInt(($( "#myselect" ).val()) * 50)/3;
+        var minSet = parseInt($( "#myduration" ).val());
+
+                        
+	    $(function() {
+          
+            if (window.screen.height == 568){
+            //    $('h1').append('<h3>works</h3>');
+                $('body').append('<link rel="stylesheet" href="css/iphone_4timer.css">');
+             }
+
+	        // Setup the timer
+	        $countdown = $('#countdown');
+	        Example2.Timer = $.timer(updateTimer, incrementTime, true);
+
+	        // Setup form
+	        $form = $('#example2form');
+	        $form.bind('submit', function() {
+	            Example2.resetCountdown();
+	            return false;
+	        });
+
+	    });
+
+	    function updateTimer() {
+
+	        // Output timer position
+	        var timeString = formatTime(currentTime);
+	        $countdown.html(timeString);
+                        
+                        
+
+                        
+                        for (var i = 1; i < 60; i++) {
+                        interval.push(i*minSet);
+                     
+                        interval.push(newTime - interval[i]);
+                        console.log(interval[i]);
+                        
+                        console.log('Current Ttme: '+Math.round(currentTime/60));
+                        console.log('Interval time will be: '+interval[i]);
+                        
+                        if (Math.round(currentTime/60) == interval[i]) {
+                        audio.play();
+                        }
+                        
+                        }
+                        
+                        
+                        
+                       
+	        // If timer is complete, trigger alert
+	        if (currentTime == 0) {
+	            Example2.Timer.stop();
+	            
+				var audio = new Audio('meditationBell.mp3');
+				audio.play();
+				
+	           // Example2.resetCountdown();
+	            return;
+	        }
+                        
+         
+                        
+
+	        // Increment timer position
+	        currentTime -= incrementTime;
+	        if (currentTime < 0) currentTime = 0;
+
+	    }
+
+	    this.resetCountdown = function() {
+
+	        // Get time from form
+	        if (newTime > 0) {currentTime = newTime;}
+       
+	        // Stop and reset timer
+	       // Example2.Timer.stop().once();
+
+	    };
+                        
+        this.startClock = function() {
+                        
+                        $( "#countdown" ).show();
+                        $( "#myselect" ).hide();
+                        
+                        // Get time from form
+                        var helloTime = parseInt($( "#myselect" ).val()) * 1000;
+                        if (newTime > 0) {currentTime = helloTime;}
+                        
+       };
+                        
+                        this.durationSet = function() {
+                        
+                        // Get time from form
+                       newTime = parseInt(($( "#myselect" ).val()) * 50)/3;
+                       minSet = parseInt($( "#myduration" ).val());
+                        
+                      
+                        
+                        };
+                        
+                        
+
+
+	});
+
+
+
+
+	// Common functions
+	function pad(number, length) {
+	    var str = '' + number;
+	    while (str.length < length) {str = '0' + str;}
+	    return str;
+	}
+	function formatTime(time) {
+	    time = time / 10;
+	    var min = parseInt(time / 6000),
+	        sec = parseInt(time / 100) - (min * 60),
+	        hundredths = pad(time - (sec * 100) - (min * 6000), 2);
+	    return (min > 0 ? pad(min, 2) : "00") + ":" + pad(sec, 2);
+	}
+		
+	</script>
+	
+    </body>
+</html>

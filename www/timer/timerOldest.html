@@ -1,0 +1,292 @@
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+		
+        <title>Timer</title>
+    </head>
+    <body>
+		
+		<style type="text/css" media="screen">
+		/*
+		.block:before {
+		  content: '';
+		  display: inline-block;
+		  height: 20%; 
+		  vertical-align: middle;
+		  margin-right: -0.25em;
+ 
+		 }
+ 
+		.centered {
+		  display: inline-block;
+		  vertical-align: middle;
+		  width: 300px;
+		  padding: 10px 15px;
+
+		 }
+		 */
+		
+		body{
+			margin-top: 10%;
+			
+		}
+		.title {
+		color: #274368;
+		font-size: 10em;
+		font-family: Times;
+		}
+		
+		button{
+			margin: 10%;
+			width: 40%;
+			height: 7%;
+		}
+		
+		h1{
+			font-size: 5em;
+			color: #274368;
+		}
+		
+		h2{
+			font-size: 4em;
+		}
+		</style> 
+		
+<div class="block col-md-6 col-md-offset-3 row-md-6 text-center" style="height: 100%;">
+    
+    <div class="centered ">
+          <h1>Timer</h1>
+		  
+		  
+		  
+			
+            <h2><span id="countdown" style='display:none'>05:00:00</span></h2>
+<form id="example2form">
+
+  <h3 class='pleaseChoose'> Please choose a time </h3>
+  
+  <style type="text/css" media="screen">
+  .butt, .input {
+  padding: 2rem;
+  margin: .375rem;
+  background-color: transparent;
+  border-radius: 4px; 
+}
+
+
+  </style>
+  
+  <h4>
+<select class="input" id="myselect" onchange="Example2.resetCountdown();">
+    <option value="0">Pick a time</option>
+	<option value="60">1 minute</option>
+	<option value="120">2 minutes</option>
+	<option value="180">3 minutes</option>
+	<option value="300">5 minutes</option>
+    <option value="600">10 minutes</option>
+    <option value="900">15 minutes</option>
+    <option value="1200">20 minutes</option>
+    <option value="1800">30 minutes</option>
+	   <option value="2400">40 minutes</option>
+  <option value="2700">45 minutes</option>
+     <option value="1800">50 minutes</option>
+  <option value="3600">1 hour</option>
+</select>
+ </h4>
+ <br>
+ 
+ <h3 style='margin-top: 5%'>Set an interval for bell: 
+	 <h4><select class="input" id="myduration">
+     <option value="40000">Pick a time</option>
+ 	<option value="1000">Every minute</option>
+ 	<option value="2000">Every 2 minutes</option>
+ 	<option value="5000">Every 5 minutes</option>
+     <option value="10000">Every 10 minutes</option>
+     <option value="15000">Every 15 minutes</option>
+     <option value="30000">Every 30 minutes</option>
+ </select></h4></h5>
+ 
+  <br>
+  
+
+ 
+  <button type='button' onclick='Example2.Timer.toggle();' class="btn btn-play btn-default" style='margin-top: 2%'/>Play/Pause</button>
+  
+  <button onclick='Example2.resetCountdown();' class="btn btn-default reset" style='margin-top: 5%; display: none;'/>Set Another Time</button>
+
+  
+                </form>
+ 
+ <!-- Standard button -->
+  <a href='index.html'>
+ <button type="button" class="btn btn-default" style='margin-top:2%'>Home</button>
+</a><br>
+
+    </div>
+    
+</div>
+        <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.timer.js"></script>
+	
+	<script type="text/javascript">
+		
+
+
+
+	/**
+	 * Example 2 is similar to Example 1. Two things that are
+	 * different are counting down instead of up and allowing
+	 * user input for start time. Also, when the timer counts
+	 * down to zero, an alert is triggered.
+	 */
+
+
+
+
+
+	var Example2 = new (function() {
+
+	    var $countdown;
+	    var $form;
+	    var incrementTime = 70;
+	    var currentTime = 300000; // 5 minutes (in milliseconds)
+    
+	    $(function() {
+			
+		/*	
+			$( ".reset" ).click(function() {
+	    		  $( ".pleaseChoose" ).show();
+	    		  $( "#myselect" ).show();
+			});
+			
+			*/
+			
+      
+	        // Setup the timer
+	        $countdown = $('#countdown');
+	        Example2.Timer = $.timer(updateTimer, incrementTime, true);
+			Example2.Timer.stop();
+	        // Setup form
+	        $form = $('#example2form');
+	        $form.bind('submit', function() {
+	        
+		
+			   // Example2.resetCountdown();
+			  
+			   
+			  $( ".btn-play" ).hidet();
+				console.log(Example2);
+	            return false;
+	        });
+
+	    });
+		
+	    
+
+	    function updateTimer() {
+			// Output timer position
+
+	        var timeString = formatTime(currentTime);
+	        $countdown.html(timeString);
+			//console.log(Math.round(currentTime/60))
+			
+
+			var testAlarm = $( "#myduration" ).val();
+			
+			
+			
+			alarmSet(currentTime,testAlarm);
+	
+	        // If timer is complete, trigger alert
+	        if (currentTime == 0) {
+	            Example2.Timer.stop();
+				var audio = new Audio('meditationBell.mp3');
+				audio.play();
+	         //   Example2.resetCountdown();
+	            return;
+	        }
+
+	        // Increment timer position
+	        currentTime -= incrementTime;
+	        if (currentTime < 0) currentTime = 0;
+
+	    }
+		
+		
+
+	    this.resetCountdown = function() {
+      
+
+	  
+	      $( "#countdown" ).show();
+		  $( ".reset" ).show();
+		  $( ".pleaseChoose" ).hide();
+		  $( "#myselect" ).hide();
+		
+	//	  $( "#myselect" ).hide();
+		 // id="myselect"
+		  
+		 			 
+		  
+	        // Get time from form
+	        var newTime = parseInt($( "#myselect" ).val()) * 1000;
+	        if (newTime > 0) {currentTime = newTime;}
+
+	        // Stop and reset timer
+	        Example2.Timer.stop().once();
+
+	    };
+
+	});
+
+
+	function alarmSet(currentTime,minSet){	
+		var audio = new Audio('meditationBell.mp3');
+		
+		
+		var interval = [];
+		for (var i = 1; i < 60; i++) {
+		interval.push(i*minSet);
+		}
+
+		for (var i = 0; i < 60; i++) {
+			
+			
+			//console.log('Current Ttme: '+Math.round(currentTime/60));
+			//console.log('Interval time will be: '+interval[i]);
+			var newTime = parseInt(($( "#myselect" ).val()) * 50)/3;
+			
+			var alarmSound = newTime - interval[i];
+				
+		if (Math.round(currentTime/60) == alarmSound) {
+				audio.play();
+			}	
+		}	
+	}
+
+
+	// Common functions
+	function pad(number, length) {
+	    var str = '' + number;
+	    while (str.length < length) {str = '0' + str;}
+	    return str;
+	}
+	function formatTime(time) {
+	    time = time / 10;
+	    var min = parseInt(time / 6000),
+	        sec = parseInt(time / 100) - (min * 60),
+	        hundredths = pad(time - (sec * 100) - (min * 6000), 2);
+	    return (min > 0 ? pad(min, 2) : "00") + ":" + pad(sec, 2);
+	}
+		
+	</script>
+	
+    </body>
+</html>

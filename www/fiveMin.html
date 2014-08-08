@@ -1,0 +1,341 @@
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        
+        
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+      
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/dotStyle.css" />
+
+		
+        <title>Twenty Minutes</title>
+    </head>
+    <body>
+		
+
+
+
+     <style type="text/css" media="screen">
+
+    h1{
+        margin-left: 15px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        font-size: 5em;
+        color: white;
+        z-index: -10;
+        
+    }
+    
+    .countdownContainer{
+        background-color:#17365d;
+        z-index: -12;
+        position: absolute;
+        width: 100%;
+    }
+     
+     .bellContainer{
+         margin-top: 135px;
+         width: 100%;
+         color: #b9d1f2;
+         padding: 5px;
+         background-color:#558dd5;
+     }
+     
+     h5{
+         font-size: 20px;
+         text-align: center;
+     }
+    
+     .homeLink {
+         width: 60px;
+         height: 50px;
+         position: absolute;
+         right: 0;
+		 
+     }
+     
+     .blueSquare{
+             width: 90px;
+             height: 90px;
+             background: #64a2f2;
+             margin-top: 5px;
+             margin-bottom: 10px;
+
+     }
+     
+     .bellDescript{
+         font-size: 20px;
+         text-align: center;
+         color: white;
+     }
+	 
+    #block {
+      background-color: #2c63a9;
+      width: 100%;
+      height: 200px;
+	  margin-top: -140px;
+	  position: absolute;
+	  z-index: -10;
+    }
+	
+	
+     
+     .fiveminTitle{
+         margin-left: 50px;
+         padding-top: 7px;
+     }
+     
+     .row{
+         width: 330px;
+     }
+     
+     .bellImg{
+         width: 50px;
+     }
+
+    .playImg{
+        width: 35px;
+        float: left;
+        margin-top: 2%;
+        margin-left: 70px;
+        
+    }
+     
+     .homeIcon{
+         width: 25px;
+         float: right;
+         margin-right: 12px;
+         margin-top: 10px;
+         
+     }
+
+        </style>
+		
+        <link rel="stylesheet" href="css/iphone_4_inch.css">
+		<link rel="stylesheet" href="css/ipad.css">
+
+    <div style='background-color:#ccc; width: 100%; height: 20px;'></div>
+
+    <!-- Top Banner -->
+    <div class="centered ">
+        <a href='index.html' class='homeLink' onclick='BackgroundJS.UnlockBackgroundTime();'></a>
+        
+      
+      
+        <img src='img/banner.png' style='width: 100%; position: absolute; z-index: -1;'>
+            
+             <img src='dot_b.png' class='logoB'>
+                 
+            <a href='index.html'>
+			 <img src='img/home.png' class='homeIcon'>
+            </a>     
+                 
+          <h3 class='fiveminTitle'>Five Minute</h3>
+          
+          <!-- Count Down -->
+          <div class='centered countdownContainer'>
+              <h1><span id="countdown" class='timeContainer'>05:00</span></h1>
+			  <div id="block"></div>
+          </div>
+          
+          
+          <!-- Bells Down -->
+		 <div class='bellContainer'>
+             <h5> Choose a finishing sound </h5>
+             <div class='row'>
+                 <div class='blueSquare' style='float: left; margin-left: 6%;' onclick='audioBool = 1;playSound("Bell1.mp3")'>
+                 <h6 class='bellDescript'>
+                 TING
+                 </h6>
+                 <center>
+                 <img src='img/bell1.png' class='bellImg'>
+                 </center>
+                 </div>
+                 <div class='blueSquare' style='float: left; margin-left: 5%;' onclick='audioBool = 2;playSound("Bell2.mp3")'>
+                     <h6 class='bellDescript'>
+                         TONG
+                     </h6>
+                    <center>
+                     <img src='img/bell2.png' class='bellImg'>
+                           </center>
+                 </div>
+                 <div class='blueSquare' style='float: right; margin-right: 3%;' onclick='audioBool = 3;playSound("Bell3.mp3",3);' >
+                     <h6 class='bellDescript'>
+                         GONG
+                         <img src='img/bell3.png' class='bellImg' style='margin-top: 5px;'>
+                     </h6>
+                 </div>  
+             </div> 
+         </div>
+        
+        
+        <!-- Play Icon -->
+        <a onclick='Example2.Timer.toggle(); pausePlay();'>
+            <div onclick='BackgroundJS.SetBackgroundSeconds(300);' class='minuteContainer playContainer' style='background-color:#98b3d8; padding: 15px;'>
+                <img src='img/play.png' class='playImg'>
+                   <h2 style=' margin-left: 90px; color: #17365d;'>
+                    
+                        PLAY
+                  </h2>
+            </div>
+						  
+			<!-- Pause Icon -->
+			<div onclick='BackgroundJS.UnlockBackgroundTime();' class='minuteContainer playContainer' style='background-color:#98b3d8; padding: 15px; display: none'>
+			            <img src='img/pause.png' class='playImg'>
+			                     <h2 style=' margin-left: 90px; color: #17365d;'>
+                    
+			                          PAUSE
+			                     </h2>
+			</div>
+						  
+						  
+						  
+        </a>
+        
+        <!-- Reset Icon -->
+        <a href='fiveMin.html' onclick='BackgroundJS.UnlockBackgroundTime();'>
+            <div class='minuteContainer' style='background-color:#b9d1f2; padding: 15px; padding-bottom: 9px;'>
+                <img src='img/reset.png' class='playImg'>
+                    <h2 style=' margin-left: 90px; color: #17365d;'>
+                        RESET
+                    </h2>
+            </div>
+        </a>
+        
+      
+
+    </div>
+    
+</div>
+ <script type="text/javascript" src="js/BackgroundJS.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.timer.js"></script>
+	
+
+    
+	<script type="text/javascript">
+		
+
+	var audioBool = 1;
+	
+	function pausePlay() {
+		
+		$('.playContainer').toggle();
+		
+	}
+
+
+
+	function playSound(audioFile,audioBool) {
+		var audio = new Audio(audioFile); 
+		audio.play();
+		
+		return audioBool;
+	}
+
+	var Example2 = new (function() {
+
+	    var $countdown;
+	    var $form;
+	    var incrementTime = 70;
+	     var currentTime = 300000; // 5 minutes (in milliseconds)
+	    var newTime = currentTime;
+    
+	    $(function() {
+          
+            if (window.screen.height == 568){
+                $('body').append('<link rel="stylesheet" href="css/iphone_4_inch.css">');
+             }
+
+	        // Setup the timer
+	        $countdown = $('#countdown');
+	        Example2.Timer = $.timer(updateTimer, incrementTime, true);
+			Example2.Timer.stop();
+	
+
+	        // Setup form
+	        $form = $('#example2form');
+	        $form.bind('submit', function() {
+	            Example2.resetCountdown();
+	            return false;
+	        });
+
+	    });
+
+	    function updateTimer() {
+
+	        // Output timer position
+	        var timeString = formatTime(currentTime);
+			var rectWidth = Math.round((currentTime * (100/60000))/5);
+	        $countdown.html(timeString);
+
+	        // If timer is complete, trigger alert
+	        if (currentTime == 0) {
+	            Example2.Timer.stop();
+	            
+				if(audioBool == 1){
+					var audio = new Audio('Bell1.mp3');
+				}
+				else if (audioBool == 2){
+					var audio = new Audio('Bell2.mp3');
+				}
+				else if (audioBool == 3){
+					var audio = new Audio('Bell3.mp3');
+				}
+				
+				audio.play();
+				BackgroundJS.UnlockBackgroundTime();
+				
+	           // Example2.resetCountdown();
+	            return;
+	        }
+
+	        // Increment timer position
+			console.log(rectWidth);
+			var elem = document.getElementById('block');
+		    elem.style.width = rectWidth + "%";
+			
+	        currentTime -= incrementTime;
+	        if (currentTime < 0) currentTime = 0;
+			
+		    }
+
+	    this.resetCountdown = function() {
+
+	        // Get time from form
+        
+	        if (newTime > 0) {currentTime = newTime;}
+
+	        // Stop and reset timer
+	        Example2.Timer.stop().once();
+
+	    };
+
+	});
+
+
+
+
+	// Common functions
+	function pad(number, length) {
+	    var str = '' + number;
+	    while (str.length < length) {str = '0' + str;}
+	    return str;
+	}
+	function formatTime(time) {
+	    time = time / 10;
+	    var min = parseInt(time / 6000),
+	        sec = parseInt(time / 100) - (min * 60),
+	        hundredths = pad(time - (sec * 100) - (min * 6000), 2);
+	    return (min > 0 ? pad(min, 2) : "00") + ":" + pad(sec, 2);
+	}
+		
+	</script>
+	
+    </body>
+</html>

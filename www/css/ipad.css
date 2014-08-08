@@ -1,0 +1,190 @@
+
+
+
+
+@media screen and (min-width:768px){
+    /* Device Specific CSS rules here */
+
+    h1, .h1, h2, .h2, h3, .h3 {
+		font-size: 60px;
+		padding: 10px;
+		padding-left: 10%;
+        
+    }
+    
+    h4, .h4, h5, .h5, h6, .h6 {
+
+        font-size: 60px;
+    }
+	
+	.arrowRight{
+		float: right; 
+		margin-top: 20px; 
+		margin-right: 30px;
+		width: 20px;
+	}
+	
+	.buttonIcon{
+	height: 130px;
+	width: 130px;
+	margin-top: 30px;	
+	}
+	
+	.iconContainer{
+	height: 200px;	
+	}
+	
+	.audioFix1{
+	font-size: 175px;	
+	margin-left: 0%;
+	}
+	
+ .fofbocTitle{
+ margin-left: 180px; 
+ padding-top: 7px;
+	}
+	
+    .beditationTitle{
+    margin-left: 155px; 
+    padding-top: 7px;
+   	}
+	
+	.clockImg{
+	width: 50px;	
+	}
+	
+	.logoB{
+		margin-top: 20px;
+		width: 80px;	
+	}
+	
+	.iPadBell{
+		margin-top: 700px;
+	}
+		
+	.dotB{
+		width: 80px;
+		margin-top: 15px;
+		margin-bottom: 20px;
+	}
+	
+	.btn-info{
+		margin-top: 40px;
+	}
+    
+	.homeLink {
+        width: 120px;
+        height: 100px;
+        position: absolute;
+        right: 0;
+	/*	background-image:url('http://www.clipartbest.com/cliparts/di8/59B/di859Bdie.jpeg');*/
+    }
+	
+	.oneminTitle{
+		margin-left: 120px;
+	}
+	
+    .timerminTitle{
+        margin-left: 210px;
+    }
+	
+	.countdownContainer{
+		margin-top: 0px;
+		padding-top: 100px;
+		height: 500px;
+	}
+	
+	.bellContainer{
+		margin-top: 370px;
+	}
+	
+	.timerContainer{
+		margin-top: 330px;
+	}
+	
+	.timeContainer{
+		font-size: 160px;
+		margin-left: 40px;
+	}
+	
+	#block{
+		height: 700px;
+		margin-top: -300px;
+	}
+	
+	h5, .bellDescript{
+		font-size: 50px;
+	}
+	
+	.blueSquare{
+        width: 208px;
+        height: 208px;
+		margin-bottom: 30px;
+		margin-top: 10px;
+	}
+	
+    .fifteenminTitle{
+        margin-left: 35px;
+        padding-top: 7px;
+    }
+	
+    .twentyminTitle{
+        margin-left: 35px;
+        padding-top: 7px;
+    }
+    
+	
+	.row{
+		width: 768px;
+	}
+	
+	.bellImg{
+		padding-top: 30px;
+		width: 60px;
+	}
+	
+	.playImg{
+	        width: 65px;
+			 margin-left: 200px;
+			 margin-right: 50px;
+	    }
+		
+        .homeIcon{
+            width: 80px;
+            float: right;
+            margin-right: 22px;
+            margin-top: 15px;
+         
+        }
+		
+		.audioFix{
+			margin-top: 300px;
+		}
+	
+		.ipadCountdown{
+			
+			height: 700px;
+		}
+		
+   	 .timeBtn{
+		padding-top: 50px;
+	 	font-size: 60px; 
+   	 }
+	 
+	 .ipadSelect{
+		 margin-left: 100px;
+		 margin-top: 120px;
+	 }
+	 
+	 .intervalTmr{
+	 		width: 750px;
+			font-size: 50px;
+	 }
+	 
+		.timeFont{
+			font-size: 60px;
+		
+		}
+
+	
+}

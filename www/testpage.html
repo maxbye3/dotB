@@ -1,0 +1,245 @@
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        
+        
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+      
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/dotStyle.css" />
+
+		
+        <title>TEST PAGE</title>
+    </head>
+    <body>
+		
+
+
+
+     <style type="text/css" media="screen">
+
+    h1{
+        margin-left: 15px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+
+        color: white;
+
+        
+    }
+    
+    .countdownContainer{
+        background-color:#17365d;
+        z-index: -12;
+		padding-left: 20%;
+        position: absolute;
+        width: 100%;
+    }
+     
+     .bellContainer{
+         margin-top: 135px;
+         width: 100%;
+         color: #b9d1f2;
+         padding: 5px;
+         background-color:#558dd5;
+     }
+     
+     h5{
+         font-size: 20px;
+         text-align: center;
+     }
+    
+     .homeLink {
+         width: 60px;
+         height: 50px;
+         position: absolute;
+         right: 0;
+     }
+     
+     .blueSquare{
+             width: 90px;
+             height: 90px;
+             background: #64a2f2;
+             margin-top: 5px;
+             margin-bottom: 10px;
+
+     }
+     
+     .bellDescript{
+         font-size: 20px;
+         text-align: center;
+         color: white;
+     }
+	 
+	 
+	 #timers canvas {
+	    -webkit-transform : rotate(-90deg);  
+	    -moz-transform : rotate(-90deg);
+		width: 130px;
+		height: 130px;
+
+	 }
+
+	 #timers {
+	     position: relative; 
+		 z-index: 1; 
+		 height: 100px; 
+		 width: 100px; }
+	 #timers span { 
+	     position   : absolute; 
+	     z-index    : 1;
+		 margin-left: -10px; 
+	     top        : 80%; 
+	     margin-top : -0.6em;
+	     display    : block; 
+	     width      : 100%;
+	     text-align : center;
+	     height     : 1.5em;
+	     color      : #fff;
+	     font       : 0.5em Arial;
+	 }
+    
+	 
+
+
+        </style>
+		
+        <link rel="stylesheet" href="css/iphone_4_inch.css">
+
+    <div style='background-color:#ccc; width: 100%; height: 20px;'></div>
+
+    <!-- Top Banner -->
+    <div class="centered ">
+        <a href='index.html' class='homeLink'></a>
+        
+      
+      
+        <img src='img/banner.png' style='width: 100%; position: absolute; z-index: -1;'>
+            
+             <img src='dot_b.png' width='40px' style='float: left; margin: 5px; z-index:10; positon: absolute;'>
+           
+          <h3 style='margin-left: 50px; padding-top: 7px;'>TESTPAGE</h3>
+          
+          <!-- Count Down -->
+          <div class='centered countdownContainer'>
+            
+			
+		    <div id="timers">
+						<h1>
+		                 <canvas id="timer" width="100" height="100"></canvas> 
+		                 <span id="counter">3:00</span> 
+					 </h1>
+		             </div>
+					 
+					 
+          </div>
+          
+          
+          <!-- Bells Down -->
+		 <div class='bellContainer'>
+             <h5> Choose a finishing noise </h5>
+             <div class='row'>
+                 <div class='blueSquare' style='float: left; margin-left: 6%'>
+                 <h6 class='bellDescript'>
+                 BELL 1
+                 </h6>
+                 <center>
+                 <img src='img/bell1.png' width='50px'>
+                 </center>
+                 </div>
+                 <div class='blueSquare' style='float: left; margin-left: 4.75%;'>
+                     <h6 class='bellDescript'>
+                         BELL 2
+                     </h6>
+                    <center>
+                     <img src='img/bell2.png' width='50px'>
+                           </center>
+                 </div>
+                 <div class='blueSquare' style='float: right; margin-right: 6%;'>
+                     <h6 class='bellDescript'>
+                         BELL 3
+                         <img src='img/bell3.png' width='50px' style='margin-top: 5px;'>
+                     </h6>
+                 </div>
+              
+             </div>
+             
+         </div>
+        
+        
+        <!-- Play Icon -->
+        <a onclick='Example2.Timer.toggle();'>
+            <div class='minuteContainer' style='background-color:#98b3d8; padding: 15px;'>
+               <img src='img/play.png' width='30px' style='float: left; margin-top: 5px; margin-left: 70px; text-shadow: 0px 1px 2px #ff0000;'>
+                   <h2 style=' margin-left: 90px; color: #17365d; text-shadow: 0px 1px 2px #ff0000;'>
+                    
+                        PLAY
+                </h2>
+                          </div>
+        </a>
+        
+        <!-- Reset Icon -->
+        <a href='oneMin.html'>
+            <div class='minuteContainer' style='background-color:#b9d1f2; padding: 15px;'>
+                <img src='img/reset.png' width='35px' style='float: left; margin-top: 5px; margin-left: 70px;'>
+                    <h2 style=' margin-left: 90px; color: #17365d; text-shadow: 0px 1px 2px #ff0000;'>
+                        RESET
+                    </h2>
+            </div>
+        </a>
+        
+      
+
+    </div>
+    
+</div>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.timer.js"></script>
+	
+<script type="text/javascript">
+window.onload = function() {
+        canvas  = document.getElementById('timer'),
+        seconds = document.getElementById('counter'),
+        ctx     = canvas.getContext('2d'), 
+        sec     = 700,
+        countdown = sec;
+
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "#fff";
+    
+    var 
+    startAngle = 0, 
+    time       = 0,
+    intv       = setInterval(function(){
+
+        ctx.clearRect(0, 0, 200, 200);
+        var endAngle = (Math.PI * time * 2 / sec);
+        ctx.arc(65, 35, 30, startAngle , endAngle, false);   
+        startAngle = endAngle;
+        ctx.stroke();
+        
+        countdown--;
+        if ( countdown > 60){
+        seconds.innerHTML = Math.floor(countdown/60);
+        seconds.innerHTML += ":" + countdown%60;
+        }
+        else{
+        seconds.innerHTML = countdown;
+        }
+        
+        if (++time > sec,countdown == 0 ) { clearInterval(intv), $("#timer, #counter").remove(), $("#timers").prepend("<img src='img/reset.png'>"); }
+        
+                            
+           
+    }, 10);
+    
+}
+</script>
+    
+
+	
+    </body>
+</html>

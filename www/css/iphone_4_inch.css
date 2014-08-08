@@ -1,0 +1,72 @@
+
+
+
+
+@media screen and (device-aspect-ratio: 40/71) and (-webkit-min-device-pixel-ratio: 2) {
+
+
+    .minuteContainer{
+               width: 100%;
+               padding: 10px;
+           }
+		   
+	.buttonIcon{
+		        background-color:#c2ddff;
+		        width: 80px;
+		        height: 80px;
+		   }
+		   
+    .iconContainer{
+		           height: 100px;
+				
+		         }
+        
+	h1{
+		font-size: 6.5em;
+		margin-left: -20px;
+		padding-bottom: 30px;
+		 margin-top: 15px;
+	}
+	
+	.bellContainer{
+		margin-top: 180px;
+	}
+    
+	
+    .blueSquare{
+
+            margin-top: 25px;
+            margin-bottom: 30px;
+    }
+	
+	.btn-info{
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+	
+	.audioGuideDiv{
+		height: 166px;
+	}
+	
+	#block{
+		margin-top: -250px;
+		height: 500px;
+	}
+	
+	.audioFix{
+		margin-top:170px;
+	}
+	
+	.timerFix{
+		margin-left: -5px;
+	}
+	
+	.audioFix1{
+		margin-left: -20px;
+	}
+	
+	.audioFix2{
+		margin-left: -17px;
+	}
+	
+}
